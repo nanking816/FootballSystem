@@ -15,4 +15,4 @@ Assign the ball to specific player who is closed to it for further calculating o
 Estimate the movement of cameras between continuous frames by LK optical flow.
 
 ### view_transformer
-Transfrom the 2D coordinate to 3D coordinate with Perspective Transform, but it needs to revise based on concrete size of football field
+Transfrom the pixel coordinate to meter coordinate with Perspective Transform, but it needs to revise based on concrete size of football field

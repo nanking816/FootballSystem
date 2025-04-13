@@ -1,11 +1,9 @@
 # FootballSystem
 
 ### utils
-
 Define methods to measure distances and read/save vedios.
 
 ### TeamAssigner 
-
 Use the K-Means clustering algorithm to extract color information from images and perform clustering, thereby determining which team each player belongs to.
 
 ### player_ball_assigner
@@ -18,4 +16,4 @@ Estimate the movement of cameras between continuous frames by LK optical flow.
 Transfrom the pixel coordinate to meter coordinate with Perspective Transform, but it needs to revise based on concrete size of football field
 
 ### SpeedAndDistance_Estimator
-Calculate speed and distance between each 5 frames
+Calculate speed and distance of players between each 5 frames

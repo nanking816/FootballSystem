@@ -17,3 +17,8 @@ Transfrom the pixel coordinate to meter coordinate with Perspective Transform, b
 
 ### SpeedAndDistance_Estimator
 Calculate speed and distance of players between each 5 frames
+
+### trackers
+This code forms the core of the detection and tracking functionality. It first uses a finetuned YOLOv8x model to perform object detection on each frame, then identify players, goalkeepers, referees, and the football on the field. After detection, the system applies the ByteTrack multi-object tracking algorithm to associate the same targets across consecutive frames, thereby assigning consistent Track IDs to each object for continuous tracking.
+
+For the football, which is prone to occlusion or missed detections during the game, the system integrates an additional Kalman filter. If the ball is successfully detected in the current frame, the Kalman filter is updated using the detection results. If the ball is not detected, the Kalman filter predicts its position, and the predicted bounding box is added to the tracking results for the current frame.

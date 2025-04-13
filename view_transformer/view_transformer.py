@@ -10,7 +10,6 @@ class ViewTransformer():
                                [265, 275], 
                                [910, 260], 
                                [1640, 915]])
-        # 3-D positions
         self.target_vertices = np.array([
             [0,court_width],
             [0, 0],
@@ -22,7 +21,7 @@ class ViewTransformer():
         self.target_vertices = self.target_vertices.astype(np.float32)
         # Perspective Transform
         self.persepctive_trasnformer = cv2.getPerspectiveTransform(self.pixel_vertices, self.target_vertices)
-    # Pixel2Coordinate, meters
+    # Pixel2Coordinate(meters)
     def transform_point(self,point):
         p = (int(point[0]),int(point[1])) # (x,y)
         is_inside = cv2.pointPolygonTest(self.pixel_vertices,p,False) >= 0 
@@ -34,7 +33,6 @@ class ViewTransformer():
         return tranform_point.reshape(-1,2)
      
     def add_transformed_position_to_tracks(self,tracks):
-        # 
         for object, object_tracks in tracks.items():
             for frame_num, track in enumerate(object_tracks):
                 for track_id, track_info in track.items():
